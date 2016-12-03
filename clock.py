@@ -142,133 +142,149 @@ twelve_y=99
 centre_x=376
 centre_y=400
 
-#define deck
-deck={ace_heart:1, two_heart:2, three_heart:3, four_heart:4, five_heart:5, six_heart:6, seven_heart:7, eight_heart:8, nine_heart:9, ten_heart:10, jack_heart:11, queen_heart:12, king_heart:13, ace_diamond:1, two_diamond:2, three_diamond:3, four_diamond:4, five_diamond:5, six_diamond:6, seven_diamond:7, eight_diamond:8, nine_diamond:9, ten_diamond:10, jack_diamond:11, queen_diamond:12, king_diamond:13, ace_club:1, two_club:2, three_club:3, four_club:4, five_club:5, six_club:6, seven_club:7, eight_club:8, nine_club:9, ten_club:10, jack_club:11, queen_club:12, king_club:13, ace_spade:1, two_spade:2, three_spade:3, four_spade:4, five_spade:5, six_spade:6, seven_spade:7, eight_spade:8, nine_spade:9, ten_spade:10, jack_spade:11, queen_spade:12, king_spade:13}
-        
-#shuffle the deck
-keys=list(deck.keys())
-random.shuffle(keys)
-shuffled_deck=[(key) for key in keys]
-
 #set card starting positions
-#centre
-canvas.create_image(centre_x+(0*x_stack_shift), centre_y, image=(card_back))
-canvas.create_image(centre_x+(1*x_stack_shift), centre_y, image=(card_back))
-canvas.create_image(centre_x+(2*x_stack_shift), centre_y, image=(card_back))
-canvas.create_image(centre_x+(3*x_stack_shift), centre_y, image=(card_back))
-#one
-canvas.create_image(one_x+(0*x_stack_shift), one_y, image=(card_back))
-canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(card_back))
-canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(card_back))
-canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(card_back))
-#two
-canvas.create_image(two_x+(0*x_stack_shift), two_y, image=(card_back))
-canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(card_back))
-canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(card_back))
-canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(card_back))
-#three
-canvas.create_image(three_x+(0*x_stack_shift), three_y, image=(card_back))
-canvas.create_image(three_x+(1*x_stack_shift), three_y, image=(card_back))
-canvas.create_image(three_x+(2*x_stack_shift), three_y, image=(card_back))
-canvas.create_image(three_x+(3*x_stack_shift), three_y, image=(card_back))
-#four
-canvas.create_image(four_x+(0*x_stack_shift), four_y, image=(card_back))
-canvas.create_image(four_x+(1*x_stack_shift), four_y, image=(card_back))
-canvas.create_image(four_x+(2*x_stack_shift), four_y, image=(card_back))
-canvas.create_image(four_x+(3*x_stack_shift), four_y, image=(card_back))
-#five
-canvas.create_image(five_x+(0*x_stack_shift), five_y, image=(card_back))
-canvas.create_image(five_x+(1*x_stack_shift), five_y, image=(card_back))
-canvas.create_image(five_x+(2*x_stack_shift), five_y, image=(card_back))
-canvas.create_image(five_x+(3*x_stack_shift), five_y, image=(card_back))
-#six
-canvas.create_image(six_x+(0*x_stack_shift), six_y, image=(card_back))
-canvas.create_image(six_x+(1*x_stack_shift), six_y, image=(card_back))
-canvas.create_image(six_x+(2*x_stack_shift), six_y, image=(card_back))
-canvas.create_image(six_x+(3*x_stack_shift), six_y, image=(card_back))
-#seven
-canvas.create_image(seven_x+(0*x_stack_shift), seven_y, image=(card_back))
-canvas.create_image(seven_x+(1*x_stack_shift), seven_y, image=(card_back))
-canvas.create_image(seven_x+(2*x_stack_shift), seven_y, image=(card_back))
-canvas.create_image(seven_x+(3*x_stack_shift), seven_y, image=(card_back))
-#eight
-canvas.create_image(eight_x+(0*x_stack_shift), eight_y, image=(card_back))
-canvas.create_image(eight_x+(1*x_stack_shift), eight_y, image=(card_back))
-canvas.create_image(eight_x+(2*x_stack_shift), eight_y, image=(card_back))
-canvas.create_image(eight_x+(3*x_stack_shift), eight_y, image=(card_back))
-#nine
-canvas.create_image(nine_x+(0*x_stack_shift), nine_y, image=(card_back))
-canvas.create_image(nine_x+(1*x_stack_shift), nine_y, image=(card_back))
-canvas.create_image(nine_x+(2*x_stack_shift), nine_y, image=(card_back))
-canvas.create_image(nine_x+(3*x_stack_shift), nine_y, image=(card_back))
-#ten
-canvas.create_image(ten_x+(0*x_stack_shift), ten_y, image=(card_back))
-canvas.create_image(ten_x+(1*x_stack_shift), ten_y, image=(card_back))
-canvas.create_image(ten_x+(2*x_stack_shift), ten_y, image=(card_back))
-canvas.create_image(ten_x+(3*x_stack_shift), ten_y, image=(card_back))
-#eleven
-canvas.create_image(eleven_x+(0*x_stack_shift), eleven_y, image=(card_back))
-canvas.create_image(eleven_x+(1*x_stack_shift), eleven_y, image=(card_back))
-canvas.create_image(eleven_x+(2*x_stack_shift), eleven_y, image=(card_back))
-canvas.create_image(eleven_x+(3*x_stack_shift), eleven_y, image=(card_back))
-#twelve
-canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(card_back))
-canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(card_back))
-canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(card_back))
-canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(card_back))
-
-#lists of exposed cards
-aces=[]
-twos=[]
-threes=[]
-fours=[]
-fives=[]
-sixes=[]
-sevens=[]
-eights=[]
-nines=[]
-tens=[]
-jacks=[]
-queens=[]
-kings=[]
-
-def arse():
-    tkint.after(4000)
+def reset():
+    #centre
+    canvas.create_image(centre_x+(0*x_stack_shift), centre_y, image=(card_back))
+    canvas.create_image(centre_x+(1*x_stack_shift), centre_y, image=(card_back))
+    canvas.create_image(centre_x+(2*x_stack_shift), centre_y, image=(card_back))
+    canvas.create_image(centre_x+(3*x_stack_shift), centre_y, image=(card_back))
+    #one
+    canvas.create_image(one_x+(0*x_stack_shift), one_y, image=(card_back))
+    canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(card_back))
+    canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(card_back))
+    canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(card_back))
+    #two
+    canvas.create_image(two_x+(0*x_stack_shift), two_y, image=(card_back))
+    canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(card_back))
+    canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(card_back))
+    canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(card_back))
+    #three
+    canvas.create_image(three_x+(0*x_stack_shift), three_y, image=(card_back))
+    canvas.create_image(three_x+(1*x_stack_shift), three_y, image=(card_back))
+    canvas.create_image(three_x+(2*x_stack_shift), three_y, image=(card_back))
+    canvas.create_image(three_x+(3*x_stack_shift), three_y, image=(card_back))
+    #four
+    canvas.create_image(four_x+(0*x_stack_shift), four_y, image=(card_back))
+    canvas.create_image(four_x+(1*x_stack_shift), four_y, image=(card_back))
+    canvas.create_image(four_x+(2*x_stack_shift), four_y, image=(card_back))
+    canvas.create_image(four_x+(3*x_stack_shift), four_y, image=(card_back))
+    #five
+    canvas.create_image(five_x+(0*x_stack_shift), five_y, image=(card_back))
+    canvas.create_image(five_x+(1*x_stack_shift), five_y, image=(card_back))
+    canvas.create_image(five_x+(2*x_stack_shift), five_y, image=(card_back))
+    canvas.create_image(five_x+(3*x_stack_shift), five_y, image=(card_back))
+    #six
+    canvas.create_image(six_x+(0*x_stack_shift), six_y, image=(card_back))
+    canvas.create_image(six_x+(1*x_stack_shift), six_y, image=(card_back))
+    canvas.create_image(six_x+(2*x_stack_shift), six_y, image=(card_back))
+    canvas.create_image(six_x+(3*x_stack_shift), six_y, image=(card_back))
+    #seven
+    canvas.create_image(seven_x+(0*x_stack_shift), seven_y, image=(card_back))
+    canvas.create_image(seven_x+(1*x_stack_shift), seven_y, image=(card_back))
+    canvas.create_image(seven_x+(2*x_stack_shift), seven_y, image=(card_back))
+    canvas.create_image(seven_x+(3*x_stack_shift), seven_y, image=(card_back))
+    #eight
+    canvas.create_image(eight_x+(0*x_stack_shift), eight_y, image=(card_back))
+    canvas.create_image(eight_x+(1*x_stack_shift), eight_y, image=(card_back))
+    canvas.create_image(eight_x+(2*x_stack_shift), eight_y, image=(card_back))
+    canvas.create_image(eight_x+(3*x_stack_shift), eight_y, image=(card_back))
+    #nine
+    canvas.create_image(nine_x+(0*x_stack_shift), nine_y, image=(card_back))
+    canvas.create_image(nine_x+(1*x_stack_shift), nine_y, image=(card_back))
+    canvas.create_image(nine_x+(2*x_stack_shift), nine_y, image=(card_back))
+    canvas.create_image(nine_x+(3*x_stack_shift), nine_y, image=(card_back))
+    #ten
+    canvas.create_image(ten_x+(0*x_stack_shift), ten_y, image=(card_back))
+    canvas.create_image(ten_x+(1*x_stack_shift), ten_y, image=(card_back))
+    canvas.create_image(ten_x+(2*x_stack_shift), ten_y, image=(card_back))
+    canvas.create_image(ten_x+(3*x_stack_shift), ten_y, image=(card_back))
+    #eleven
+    canvas.create_image(eleven_x+(0*x_stack_shift), eleven_y, image=(card_back))
+    canvas.create_image(eleven_x+(1*x_stack_shift), eleven_y, image=(card_back))
+    canvas.create_image(eleven_x+(2*x_stack_shift), eleven_y, image=(card_back))
+    canvas.create_image(eleven_x+(3*x_stack_shift), eleven_y, image=(card_back))
+    #twelve
     canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(card_back))
     canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(card_back))
     canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(card_back))
     canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(card_back))
 
-for x in range(0,52):
-        if deck[shuffled_deck[x]] == 1:
+#define deck
+deck={ace_heart:1, two_heart:2, three_heart:3, four_heart:4, five_heart:5, six_heart:6, seven_heart:7, eight_heart:8, nine_heart:9, ten_heart:10, jack_heart:11, queen_heart:12, king_heart:13, ace_diamond:1, two_diamond:2, three_diamond:3, four_diamond:4, five_diamond:5, six_diamond:6, seven_diamond:7, eight_diamond:8, nine_diamond:9, ten_diamond:10, jack_diamond:11, queen_diamond:12, king_diamond:13, ace_club:1, two_club:2, three_club:3, four_club:4, five_club:5, six_club:6, seven_club:7, eight_club:8, nine_club:9, ten_club:10, jack_club:11, queen_club:12, king_club:13, ace_spade:1, two_spade:2, three_spade:3, four_spade:4, five_spade:5, six_spade:6, seven_spade:7, eight_spade:8, nine_spade:9, ten_spade:10, jack_spade:11, queen_spade:12, king_spade:13}
+        
+#function to shuffle the deck
+def shuffle():
+    keys=list(deck.keys())
+    random.shuffle(keys)
+    shuffled_deck=[(key) for key in keys]
+    return shuffled_deck
+
+#function to start exposing and placing cards
+def start():
+    reset()
+    #lists of exposed cards
+    aces=[]
+    twos=[]
+    threes=[]
+    fours=[]
+    fives=[]
+    sixes=[]
+    sevens=[]
+    eights=[]
+    nines=[]
+    tens=[]
+    jacks=[]
+    queens=[]
+    kings=[]
+    test_deck=shuffle()
+    for x in range(0,52):
+        #tkint.after(1000)
+        key_value=(test_deck[x])
+        if deck[key_value] == 1:
             if len(aces) == 3:
-                aces.append(shuffled_deck[x])
-                canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(aces[0]))
-                canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(aces[1]))
-                canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(aces[2]))
-                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[3]))
-                tkint.after(2000)
+                aces.append(key_value)
+                canvas.create_image(one_x+(0*x_stack_shift), one_y, image=(aces[0]))
+                canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(aces[1]))
+                canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(aces[2]))
+                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[3]))
             if len(aces) == 2:
-                aces.append(shuffled_deck[x])
-                canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(aces[0]))
-                canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(aces[1]))
-                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[2]))
-                tkint.after(2000)            
+                aces.append(key_value)
+                canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(aces[0]))
+                canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(aces[1]))
+                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[2]))
             if len(aces) == 1:
-                aces.append(shuffled_deck[x])
-                canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(aces[0]))
-                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[1]))
-                tkint.after(2000) 
+                aces.append(key_value)
+                canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(aces[0]))
+                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[1]))
             if len(aces) == 0:
-                aces.append(shuffled_deck[x])
-                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[0]))
-                tkint.after(2000)      
+                aces.append(key_value)
+                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[0]))
+        if deck[key_value] == 2:
+            if len(twos) == 3:
+                twos.append(key_value)
+                canvas.create_image(two_x+(0*x_stack_shift), two_y, image=(twos[0]))
+                canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(twos[1]))
+                canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(twos[2]))
+                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[3]))
+            if len(twos) == 2:
+                twos.append(key_value)
+                canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(twos[0]))
+                canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(twos[1]))
+                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[2]))
+            if len(twos) == 1:
+                twos.append(key_value)
+                canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(twos[0]))
+                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[1]))
+            if len(twos) == 0:
+                twos.append(key_value)
+                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[0]))
+                
+reset()
 
-btn = tk.Button(tkint, text="click me", command=arse)
-btn.pack()
-
-#for k, v in deck.items():
-#    if v == 2:
-#        print(k, v)
+reset_btn = tk.Button(tkint, text="Reset", command=reset)
+reset_btn.pack()
+start_btn = tk.Button(tkint, text="Start", command=start)
+start_btn.pack()
 
 tk.mainloop()
