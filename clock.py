@@ -2,17 +2,12 @@ import random
 import tkinter as tk
 from PIL import Image 
 from PIL import ImageTk
-
-def hello():
-    print('hello there')
+from time import sleep
     
 tkint = tk.Tk()
     
-canvas = tk.Canvas(tkint, width=800, height=800, bg='#00ffff')
+canvas = tk.Canvas(tkint, width=800, height=800, bg='#32a245')
 canvas.pack()    
-
-btn = tk.Button(tkint, text="click me", command=hello)
-btn.pack()
 
 #Image import and card dimensions
 card_images = Image.open("classic-playing-cards.jpg")
@@ -148,13 +143,12 @@ centre_x=376
 centre_y=400
 
 #define deck
-deck=[ace_heart, two_heart, three_heart, four_heart, five_heart, six_heart, seven_heart, eight_heart, nine_heart, ten_heart, jack_heart, queen_heart, king_heart, ace_diamond, two_diamond, three_diamond, four_diamond, five_diamond, six_diamond, seven_diamond, eight_diamond, nine_diamond, ten_diamond, jack_diamond, queen_diamond, king_diamond, ace_club, two_club, three_club, four_club, five_club, six_club, seven_club, eight_club, nine_club, ten_club, jack_club, queen_club, king_club,ace_spade, two_spade, three_spade, four_spade, five_spade, six_spade, seven_spade, eight_spade, nine_spade, ten_spade, jack_spade, queen_spade, king_spade]
-
+deck={ace_heart:1, two_heart:2, three_heart:3, four_heart:4, five_heart:5, six_heart:6, seven_heart:7, eight_heart:8, nine_heart:9, ten_heart:10, jack_heart:11, queen_heart:12, king_heart:13, ace_diamond:1, two_diamond:2, three_diamond:3, four_diamond:4, five_diamond:5, six_diamond:6, seven_diamond:7, eight_diamond:8, nine_diamond:9, ten_diamond:10, jack_diamond:11, queen_diamond:12, king_diamond:13, ace_club:1, two_club:2, three_club:3, four_club:4, five_club:5, six_club:6, seven_club:7, eight_club:8, nine_club:9, ten_club:10, jack_club:11, queen_club:12, king_club:13, ace_spade:1, two_spade:2, three_spade:3, four_spade:4, five_spade:5, six_spade:6, seven_spade:7, eight_spade:8, nine_spade:9, ten_spade:10, jack_spade:11, queen_spade:12, king_spade:13}
+        
 #shuffle the deck
-shuffled_deck=random.sample(deck, len(deck))
-
-#canvas.create_image(400, 0, anchor=tk.N, image=(five_club))
-#canvas.create_image(415, 0, anchor=tk.N, image=(six_club))
+keys=list(deck.keys())
+random.shuffle(keys)
+shuffled_deck=[(key) for key in keys]
 
 #set card starting positions
 #centre
@@ -222,5 +216,59 @@ canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(card_back))
 canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(card_back))
 canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(card_back))
 canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(card_back))
+
+#lists of exposed cards
+aces=[]
+twos=[]
+threes=[]
+fours=[]
+fives=[]
+sixes=[]
+sevens=[]
+eights=[]
+nines=[]
+tens=[]
+jacks=[]
+queens=[]
+kings=[]
+
+def arse():
+    tkint.after(4000)
+    canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(card_back))
+    canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(card_back))
+    canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(card_back))
+    canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(card_back))
+
+for x in range(0,52):
+        if deck[shuffled_deck[x]] == 1:
+            if len(aces) == 3:
+                aces.append(shuffled_deck[x])
+                canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(aces[0]))
+                canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(aces[1]))
+                canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(aces[2]))
+                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[3]))
+                tkint.after(2000)
+            if len(aces) == 2:
+                aces.append(shuffled_deck[x])
+                canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(aces[0]))
+                canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(aces[1]))
+                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[2]))
+                tkint.after(2000)            
+            if len(aces) == 1:
+                aces.append(shuffled_deck[x])
+                canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(aces[0]))
+                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[1]))
+                tkint.after(2000) 
+            if len(aces) == 0:
+                aces.append(shuffled_deck[x])
+                canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(aces[0]))
+                tkint.after(2000)      
+
+btn = tk.Button(tkint, text="click me", command=arse)
+btn.pack()
+
+#for k, v in deck.items():
+#    if v == 2:
+#        print(k, v)
 
 tk.mainloop()
