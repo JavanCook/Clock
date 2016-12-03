@@ -8,16 +8,18 @@ def hello():
     
 tkint = tk.Tk()
     
-canvas = tk.Canvas(tkint, width=800, height=800)
+canvas = tk.Canvas(tkint, width=800, height=800, bg='#00ffff')
 canvas.pack()    
 
 btn = tk.Button(tkint, text="click me", command=hello)
 btn.pack()
 
 #Image import and card dimensions
-cardimages = Image.open("classic-playing-cards.jpg")
-cardx=73
-cardy=98
+card_images = Image.open("classic-playing-cards.jpg")
+#card_back = Image.open("card-back.gif")
+card_back = tk.PhotoImage(file='card-back.gif')
+card_x=73
+card_y=98
 
 #suit y-postions
 heart_top=2
@@ -58,77 +60,76 @@ king_left=12
 king_right=13
 
 #hearts
-aceheart=cardimages.crop((ace_left*cardx,heart_top*cardy,ace_right*cardx,heart_bottom*cardy))
-twoheart=cardimages.crop((two_left*cardx,heart_top*cardy,two_right*cardx,heart_bottom*cardy))
-threeheart=cardimages.crop((three_left*cardx,heart_top*cardy,three_right*cardx,heart_bottom*cardy))
-fourheart=cardimages.crop((four_left*cardx,heart_top*cardy,four_right*cardx,heart_bottom*cardy))
-fiveheart=cardimages.crop((five_left*cardx,heart_top*cardy,five_right*cardx,heart_bottom*cardy))
-sixheart=cardimages.crop((six_left*cardx,heart_top*cardy,six_right*cardx,heart_bottom*cardy))
-sevenheart=cardimages.crop((seven_left*cardx,heart_top*cardy,seven_right*cardx,heart_bottom*cardy))
-eightheart=cardimages.crop((eight_left*cardx,heart_top*cardy,eight_right*cardx,heart_bottom*cardy))
-nineheart=cardimages.crop((nine_left*cardx,heart_top*cardy,nine_right*cardx,heart_bottom*cardy))
-tenheart=cardimages.crop((ten_left*cardx,heart_top*cardy,ten_right*cardx,heart_bottom*cardy))
-jackheart=cardimages.crop((jack_left*cardx,heart_top*cardy,jack_right*cardx,heart_bottom*cardy))
-queenheart=cardimages.crop((queen_left*cardx,heart_top*cardy,queen_right*cardx,heart_bottom*cardy))
-kingheart=cardimages.crop((king_left*cardx,heart_top*cardy,king_right*cardx,heart_bottom*cardy))
+ace_heart=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,heart_top*card_y,ace_right*card_x,heart_bottom*card_y)))
+two_heart=ImageTk.PhotoImage(card_images.crop((two_left*card_x,heart_top*card_y,two_right*card_x,heart_bottom*card_y)))
+three_heart=ImageTk.PhotoImage(card_images.crop((three_left*card_x,heart_top*card_y,three_right*card_x,heart_bottom*card_y)))
+four_heart=ImageTk.PhotoImage(card_images.crop((four_left*card_x,heart_top*card_y,four_right*card_x,heart_bottom*card_y)))
+five_heart=ImageTk.PhotoImage(card_images.crop((five_left*card_x,heart_top*card_y,five_right*card_x,heart_bottom*card_y)))
+six_heart=ImageTk.PhotoImage(card_images.crop((six_left*card_x,heart_top*card_y,six_right*card_x,heart_bottom*card_y)))
+seven_heart=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,heart_top*card_y,seven_right*card_x,heart_bottom*card_y)))
+eight_heart=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,heart_top*card_y,eight_right*card_x,heart_bottom*card_y)))
+nine_heart=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,heart_top*card_y,nine_right*card_x,heart_bottom*card_y)))
+ten_heart=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,heart_top*card_y,ten_right*card_x,heart_bottom*card_y)))
+jack_heart=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,heart_top*card_y,jack_right*card_x,heart_bottom*card_y)))
+queen_heart=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,heart_top*card_y,queen_right*card_x,heart_bottom*card_y)))
+king_heart=ImageTk.PhotoImage(card_images.crop((king_left*card_x,heart_top*card_y,king_right*card_x,heart_bottom*card_y)))
 
 #diamonds
-acediamond=cardimages.crop((ace_left*cardx,diamond_top*cardy,ace_right*cardx,diamond_bottom*cardy))
-twodiamond=cardimages.crop((two_left*cardx,diamond_top*cardy,two_right*cardx,diamond_bottom*cardy))
-threediamond=cardimages.crop((three_left*cardx,diamond_top*cardy,three_right*cardx,diamond_bottom*cardy))
-fourdiamond=cardimages.crop((four_left*cardx,diamond_top*cardy,four_right*cardx,diamond_bottom*cardy))
-fivediamond=cardimages.crop((five_left*cardx,diamond_top*cardy,five_right*cardx,diamond_bottom*cardy))
-sixdiamond=cardimages.crop((six_left*cardx,diamond_top*cardy,six_right*cardx,diamond_bottom*cardy))
-sevendiamond=cardimages.crop((seven_left*cardx,diamond_top*cardy,seven_right*cardx,diamond_bottom*cardy))
-eightdiamond=cardimages.crop((eight_left*cardx,diamond_top*cardy,eight_right*cardx,diamond_bottom*cardy))
-ninediamond=cardimages.crop((nine_left*cardx,diamond_top*cardy,nine_right*cardx,diamond_bottom*cardy))
-tendiamond=cardimages.crop((ten_left*cardx,diamond_top*cardy,ten_right*cardx,diamond_bottom*cardy))
-jackdiamond=cardimages.crop((jack_left*cardx,diamond_top*cardy,jack_right*cardx,diamond_bottom*cardy))
-queendiamond=cardimages.crop((queen_left*cardx,diamond_top*cardy,queen_right*cardx,diamond_bottom*cardy))
-kingdiamond=cardimages.crop((king_left*cardx,diamond_top*cardy,king_right*cardx,diamond_bottom*cardy))
+ace_diamond=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,diamond_top*card_y,ace_right*card_x,diamond_bottom*card_y)))
+two_diamond=ImageTk.PhotoImage(card_images.crop((two_left*card_x,diamond_top*card_y,two_right*card_x,diamond_bottom*card_y)))
+three_diamond=ImageTk.PhotoImage(card_images.crop((three_left*card_x,diamond_top*card_y,three_right*card_x,diamond_bottom*card_y)))
+four_diamond=ImageTk.PhotoImage(card_images.crop((four_left*card_x,diamond_top*card_y,four_right*card_x,diamond_bottom*card_y)))
+five_diamond=ImageTk.PhotoImage(card_images.crop((five_left*card_x,diamond_top*card_y,five_right*card_x,diamond_bottom*card_y)))
+six_diamond=ImageTk.PhotoImage(card_images.crop((six_left*card_x,diamond_top*card_y,six_right*card_x,diamond_bottom*card_y)))
+seven_diamond=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,diamond_top*card_y,seven_right*card_x,diamond_bottom*card_y)))
+eight_diamond=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,diamond_top*card_y,eight_right*card_x,diamond_bottom*card_y)))
+nine_diamond=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,diamond_top*card_y,nine_right*card_x,diamond_bottom*card_y)))
+ten_diamond=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,diamond_top*card_y,ten_right*card_x,diamond_bottom*card_y)))
+jack_diamond=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,diamond_top*card_y,jack_right*card_x,diamond_bottom*card_y)))
+queen_diamond=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,diamond_top*card_y,queen_right*card_x,diamond_bottom*card_y)))
+king_diamond=ImageTk.PhotoImage(card_images.crop((king_left*card_x,diamond_top*card_y,king_right*card_x,diamond_bottom*card_y)))
 
 #clubs
-aceclub=cardimages.crop((ace_left*cardx,club_top*cardy,ace_right*cardx,club_bottom*cardy))
-twoclub=cardimages.crop((two_left*cardx,club_top*cardy,two_right*cardx,club_bottom*cardy))
-threeclub=cardimages.crop((three_left*cardx,club_top*cardy,three_right*cardx,club_bottom*cardy))
-fourclub=cardimages.crop((four_left*cardx,club_top*cardy,four_right*cardx,club_bottom*cardy))
-fiveclub=cardimages.crop((five_left*cardx,club_top*cardy,five_right*cardx,club_bottom*cardy))
-sixclub=cardimages.crop((six_left*cardx,club_top*cardy,six_right*cardx,club_bottom*cardy))
-sevenclub=cardimages.crop((seven_left*cardx,club_top*cardy,seven_right*cardx,club_bottom*cardy))
-eightclub=cardimages.crop((eight_left*cardx,club_top*cardy,eight_right*cardx,club_bottom*cardy))
-nineclub=cardimages.crop((nine_left*cardx,club_top*cardy,nine_right*cardx,club_bottom*cardy))
-tenclub=cardimages.crop((ten_left*cardx,club_top*cardy,ten_right*cardx,club_bottom*cardy))
-jackclub=cardimages.crop((jack_left*cardx,club_top*cardy,jack_right*cardx,club_bottom*cardy))
-queenclub=cardimages.crop((queen_left*cardx,club_top*cardy,queen_right*cardx,club_bottom*cardy))
-kingclub=cardimages.crop((king_left*cardx,club_top*cardy,king_right*cardx,club_bottom*cardy))
+ace_club=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,club_top*card_y,ace_right*card_x,club_bottom*card_y)))
+two_club=ImageTk.PhotoImage(card_images.crop((two_left*card_x,club_top*card_y,two_right*card_x,club_bottom*card_y)))
+three_club=ImageTk.PhotoImage(card_images.crop((three_left*card_x,club_top*card_y,three_right*card_x,club_bottom*card_y)))
+four_club=ImageTk.PhotoImage(card_images.crop((four_left*card_x,club_top*card_y,four_right*card_x,club_bottom*card_y)))
+five_club=ImageTk.PhotoImage(card_images.crop((five_left*card_x,club_top*card_y,five_right*card_x,club_bottom*card_y)))
+six_club=ImageTk.PhotoImage(card_images.crop((six_left*card_x,club_top*card_y,six_right*card_x,club_bottom*card_y)))
+seven_club=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,club_top*card_y,seven_right*card_x,club_bottom*card_y)))
+eight_club=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,club_top*card_y,eight_right*card_x,club_bottom*card_y)))
+nine_club=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,club_top*card_y,nine_right*card_x,club_bottom*card_y)))
+ten_club=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,club_top*card_y,ten_right*card_x,club_bottom*card_y)))
+jack_club=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,club_top*card_y,jack_right*card_x,club_bottom*card_y)))
+queen_club=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,club_top*card_y,queen_right*card_x,club_bottom*card_y)))
+king_club=ImageTk.PhotoImage(card_images.crop((king_left*card_x,club_top*card_y,king_right*card_x,club_bottom*card_y)))
 
 #spades
-acespade=cardimages.crop((ace_left*cardx,spade_top*cardy,ace_right*cardx,spade_bottom*cardy))
-twospade=cardimages.crop((two_left*cardx,spade_top*cardy,two_right*cardx,spade_bottom*cardy))
-threespade=cardimages.crop((three_left*cardx,spade_top*cardy,three_right*cardx,spade_bottom*cardy))
-fourspade=cardimages.crop((four_left*cardx,spade_top*cardy,four_right*cardx,spade_bottom*cardy))
-fivespade=cardimages.crop((five_left*cardx,spade_top*cardy,five_right*cardx,spade_bottom*cardy))
-sixspade=cardimages.crop((six_left*cardx,spade_top*cardy,six_right*cardx,spade_bottom*cardy))
-sevenspade=cardimages.crop((seven_left*cardx,spade_top*cardy,seven_right*cardx,spade_bottom*cardy))
-eightspade=cardimages.crop((eight_left*cardx,spade_top*cardy,eight_right*cardx,spade_bottom*cardy))
-ninespade=cardimages.crop((nine_left*cardx,spade_top*cardy,nine_right*cardx,spade_bottom*cardy))
-tenspade=cardimages.crop((ten_left*cardx,spade_top*cardy,ten_right*cardx,spade_bottom*cardy))
-jackspade=cardimages.crop((jack_left*cardx,spade_top*cardy,jack_right*cardx,spade_bottom*cardy))
-queenspade=cardimages.crop((queen_left*cardx,spade_top*cardy,queen_right*cardx,spade_bottom*cardy))
-kingspade=cardimages.crop((king_left*cardx,spade_top*cardy,king_right*cardx,spade_bottom*cardy))
+ace_spade=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,spade_top*card_y,ace_right*card_x,spade_bottom*card_y)))
+two_spade=ImageTk.PhotoImage(card_images.crop((two_left*card_x,spade_top*card_y,two_right*card_x,spade_bottom*card_y)))
+three_spade=ImageTk.PhotoImage(card_images.crop((three_left*card_x,spade_top*card_y,three_right*card_x,spade_bottom*card_y)))
+four_spade=ImageTk.PhotoImage(card_images.crop((four_left*card_x,spade_top*card_y,four_right*card_x,spade_bottom*card_y)))
+five_spade=ImageTk.PhotoImage(card_images.crop((five_left*card_x,spade_top*card_y,five_right*card_x,spade_bottom*card_y)))
+six_spade=ImageTk.PhotoImage(card_images.crop((six_left*card_x,spade_top*card_y,six_right*card_x,spade_bottom*card_y)))
+seven_spade=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,spade_top*card_y,seven_right*card_x,spade_bottom*card_y)))
+eight_spade=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,spade_top*card_y,eight_right*card_x,spade_bottom*card_y)))
+nine_spade=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,spade_top*card_y,nine_right*card_x,spade_bottom*card_y)))
+ten_spade=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,spade_top*card_y,ten_right*card_x,spade_bottom*card_y)))
+jack_spade=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,spade_top*card_y,jack_right*card_x,spade_bottom*card_y)))
+queen_spade=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,spade_top*card_y,queen_right*card_x,spade_bottom*card_y)))
+king_spade=ImageTk.PhotoImage(card_images.crop((king_left*card_x,spade_top*card_y,king_right*card_x,spade_bottom*card_y)))
 
 #define deck
-deck=[aceheart, twoheart, threeheart, fourheart, fiveheart, sixheart, sevenheart, eightheart, nineheart, tenheart, jackheart, queenheart, kingheart, acediamond, twodiamond, threediamond, fourdiamond, fivediamond, sixdiamond, sevendiamond, eightdiamond, ninediamond, tendiamond, jackdiamond, queendiamond, kingdiamond, aceclub, twoclub, threeclub, fourclub, fiveclub, sixclub, sevenclub, eightclub, nineclub, tenclub, jackclub, queenclub, kingclub,acespade, twospade, threespade, fourspade, fivespade, sixspade, sevenspade, eightspade, ninespade, tenspade, jackspade, queenspade, kingspade]
+deck=[ace_heart, two_heart, three_heart, four_heart, five_heart, six_heart, seven_heart, eight_heart, nine_heart, ten_heart, jack_heart, queen_heart, king_heart, ace_diamond, two_diamond, three_diamond, four_diamond, five_diamond, six_diamond, seven_diamond, eight_diamond, nine_diamond, ten_diamond, jack_diamond, queen_diamond, king_diamond, ace_club, two_club, three_club, four_club, five_club, six_club, seven_club, eight_club, nine_club, ten_club, jack_club, queen_club, king_club,ace_spade, two_spade, three_spade, four_spade, five_spade, six_spade, seven_spade, eight_spade, nine_spade, ten_spade, jack_spade, queen_spade, king_spade]
 
 #shuffle the deck
 shuffled_deck=random.sample(deck, len(deck))
 
-#img=ImageTk.PhotoImage(image=acespade)
-#canvas.create_image(0, 0, anchor=tk.NW, image=(img))
-
-canvas.create_image(0, 0, anchor=tk.NW, image=(ImageTk.PhotoImage(image=acespade)))
-#ImageTk.PhotoImage(image=acespade)
+canvas.create_image(400, 0, anchor=tk.N, image=(five_club))
+canvas.create_image(415, 0, anchor=tk.N, image=(six_club))
+canvas.create_image(0, 0, anchor=tk.NW, image=(card_back))
+canvas.create_image(15, 0, anchor=tk.NW, image=(card_back))
 
 tk.mainloop()
 
-#kingspade.show()
+#king_spade.show()
