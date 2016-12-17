@@ -16,202 +16,35 @@ card_x=73
 card_y=98
 x_stack_shift=15
 
-#suit y-postions
-heart_top=2
-heart_bottom=3
-diamond_top=3
-diamond_bottom=4
-club_top=0
-club_bottom=1
-spade_top=1
-spade_bottom=2
+suits=['club', 'spade', 'heart', 'diamond']
+cards=['ace', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king']
+card_coords={}
 
-#value x-positions
-ace_left=0
-ace_right=1
-two_left=1
-two_right=2
-three_left=2
-three_right=3
-four_left=3
-four_right=4
-five_left=4
-five_right=5
-six_left=5
-six_right=6
-seven_left=6
-seven_right=7
-eight_left=7
-eight_right=8
-nine_left=8
-nine_right=9
-ten_left=9
-ten_right=10
-jack_left=10
-jack_right=11
-queen_left=11
-queen_right=12
-king_left=12
-king_right=13
-
-#hearts
-ace_heart=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,heart_top*card_y,ace_right*card_x,heart_bottom*card_y)))
-two_heart=ImageTk.PhotoImage(card_images.crop((two_left*card_x,heart_top*card_y,two_right*card_x,heart_bottom*card_y)))
-three_heart=ImageTk.PhotoImage(card_images.crop((three_left*card_x,heart_top*card_y,three_right*card_x,heart_bottom*card_y)))
-four_heart=ImageTk.PhotoImage(card_images.crop((four_left*card_x,heart_top*card_y,four_right*card_x,heart_bottom*card_y)))
-five_heart=ImageTk.PhotoImage(card_images.crop((five_left*card_x,heart_top*card_y,five_right*card_x,heart_bottom*card_y)))
-six_heart=ImageTk.PhotoImage(card_images.crop((six_left*card_x,heart_top*card_y,six_right*card_x,heart_bottom*card_y)))
-seven_heart=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,heart_top*card_y,seven_right*card_x,heart_bottom*card_y)))
-eight_heart=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,heart_top*card_y,eight_right*card_x,heart_bottom*card_y)))
-nine_heart=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,heart_top*card_y,nine_right*card_x,heart_bottom*card_y)))
-ten_heart=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,heart_top*card_y,ten_right*card_x,heart_bottom*card_y)))
-jack_heart=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,heart_top*card_y,jack_right*card_x,heart_bottom*card_y)))
-queen_heart=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,heart_top*card_y,queen_right*card_x,heart_bottom*card_y)))
-king_heart=ImageTk.PhotoImage(card_images.crop((king_left*card_x,heart_top*card_y,king_right*card_x,heart_bottom*card_y)))
-
-#diamonds
-ace_diamond=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,diamond_top*card_y,ace_right*card_x,diamond_bottom*card_y)))
-two_diamond=ImageTk.PhotoImage(card_images.crop((two_left*card_x,diamond_top*card_y,two_right*card_x,diamond_bottom*card_y)))
-three_diamond=ImageTk.PhotoImage(card_images.crop((three_left*card_x,diamond_top*card_y,three_right*card_x,diamond_bottom*card_y)))
-four_diamond=ImageTk.PhotoImage(card_images.crop((four_left*card_x,diamond_top*card_y,four_right*card_x,diamond_bottom*card_y)))
-five_diamond=ImageTk.PhotoImage(card_images.crop((five_left*card_x,diamond_top*card_y,five_right*card_x,diamond_bottom*card_y)))
-six_diamond=ImageTk.PhotoImage(card_images.crop((six_left*card_x,diamond_top*card_y,six_right*card_x,diamond_bottom*card_y)))
-seven_diamond=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,diamond_top*card_y,seven_right*card_x,diamond_bottom*card_y)))
-eight_diamond=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,diamond_top*card_y,eight_right*card_x,diamond_bottom*card_y)))
-nine_diamond=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,diamond_top*card_y,nine_right*card_x,diamond_bottom*card_y)))
-ten_diamond=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,diamond_top*card_y,ten_right*card_x,diamond_bottom*card_y)))
-jack_diamond=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,diamond_top*card_y,jack_right*card_x,diamond_bottom*card_y)))
-queen_diamond=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,diamond_top*card_y,queen_right*card_x,diamond_bottom*card_y)))
-king_diamond=ImageTk.PhotoImage(card_images.crop((king_left*card_x,diamond_top*card_y,king_right*card_x,diamond_bottom*card_y)))
-
-#clubs
-ace_club=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,club_top*card_y,ace_right*card_x,club_bottom*card_y)))
-two_club=ImageTk.PhotoImage(card_images.crop((two_left*card_x,club_top*card_y,two_right*card_x,club_bottom*card_y)))
-three_club=ImageTk.PhotoImage(card_images.crop((three_left*card_x,club_top*card_y,three_right*card_x,club_bottom*card_y)))
-four_club=ImageTk.PhotoImage(card_images.crop((four_left*card_x,club_top*card_y,four_right*card_x,club_bottom*card_y)))
-five_club=ImageTk.PhotoImage(card_images.crop((five_left*card_x,club_top*card_y,five_right*card_x,club_bottom*card_y)))
-six_club=ImageTk.PhotoImage(card_images.crop((six_left*card_x,club_top*card_y,six_right*card_x,club_bottom*card_y)))
-seven_club=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,club_top*card_y,seven_right*card_x,club_bottom*card_y)))
-eight_club=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,club_top*card_y,eight_right*card_x,club_bottom*card_y)))
-nine_club=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,club_top*card_y,nine_right*card_x,club_bottom*card_y)))
-ten_club=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,club_top*card_y,ten_right*card_x,club_bottom*card_y)))
-jack_club=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,club_top*card_y,jack_right*card_x,club_bottom*card_y)))
-queen_club=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,club_top*card_y,queen_right*card_x,club_bottom*card_y)))
-king_club=ImageTk.PhotoImage(card_images.crop((king_left*card_x,club_top*card_y,king_right*card_x,club_bottom*card_y)))
-
-#spades
-ace_spade=ImageTk.PhotoImage(card_images.crop((ace_left*card_x,spade_top*card_y,ace_right*card_x,spade_bottom*card_y)))
-two_spade=ImageTk.PhotoImage(card_images.crop((two_left*card_x,spade_top*card_y,two_right*card_x,spade_bottom*card_y)))
-three_spade=ImageTk.PhotoImage(card_images.crop((three_left*card_x,spade_top*card_y,three_right*card_x,spade_bottom*card_y)))
-four_spade=ImageTk.PhotoImage(card_images.crop((four_left*card_x,spade_top*card_y,four_right*card_x,spade_bottom*card_y)))
-five_spade=ImageTk.PhotoImage(card_images.crop((five_left*card_x,spade_top*card_y,five_right*card_x,spade_bottom*card_y)))
-six_spade=ImageTk.PhotoImage(card_images.crop((six_left*card_x,spade_top*card_y,six_right*card_x,spade_bottom*card_y)))
-seven_spade=ImageTk.PhotoImage(card_images.crop((seven_left*card_x,spade_top*card_y,seven_right*card_x,spade_bottom*card_y)))
-eight_spade=ImageTk.PhotoImage(card_images.crop((eight_left*card_x,spade_top*card_y,eight_right*card_x,spade_bottom*card_y)))
-nine_spade=ImageTk.PhotoImage(card_images.crop((nine_left*card_x,spade_top*card_y,nine_right*card_x,spade_bottom*card_y)))
-ten_spade=ImageTk.PhotoImage(card_images.crop((ten_left*card_x,spade_top*card_y,ten_right*card_x,spade_bottom*card_y)))
-jack_spade=ImageTk.PhotoImage(card_images.crop((jack_left*card_x,spade_top*card_y,jack_right*card_x,spade_bottom*card_y)))
-queen_spade=ImageTk.PhotoImage(card_images.crop((queen_left*card_x,spade_top*card_y,queen_right*card_x,spade_bottom*card_y)))
-king_spade=ImageTk.PhotoImage(card_images.crop((king_left*card_x,spade_top*card_y,king_right*card_x,spade_bottom*card_y)))
+for suit in range(0,4):
+    for card in range(0,13):
+        card_top=suit
+        card_bottom=suit+1
+        card_left=card
+        card_right=card+1
+        card_name='{0}_{1}'.format(cards[card], suits[suit])
+        card_image=ImageTk.PhotoImage(card_images.crop((card_left*card_x,card_top*card_y,card_right*card_x,card_bottom*card_y)))
+        card_coords.update({card_name: card_image})
 
 #define clock positions
-one_x=534
-one_y=99
-two_x=628
-two_y=249
-three_x=628
-three_y=400
-four_x=628
-four_y=550
-five_x=534
-five_y=701
-six_x=376
-six_y=701
-seven_x=216
-seven_y=701
-eight_x=120
-eight_y=550
-nine_x=120
-nine_y=400
-ten_x=120
-ten_y=249
-eleven_x=216
-eleven_y=99
-twelve_x=376
-twelve_y=99
-centre_x=376
-centre_y=400
+clock_coords={'one_x': 534, 'one_y': 99, 'two_x': 628, 'two_y': 249, 'three_x': 628, 'three_y': 400, 'four_x': 628, 'four_y': 550, 'five_x': 534, 'five_y': 701, 'six_x': 376, 'six_y': 701, 'seven_x': 216, 'seven_y': 701, 'eight_x': 120, 'eight_y': 550, 'nine_x': 120, 'nine_y': 400, 'ten_x': 120, 'ten_y': 249, 'eleven_x': 216, 'eleven_y': 99, 'twelve_x': 376, 'twelve_y': 99, 'centre_x': 376, 'centre_y': 400}
+
+positions=["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","centre"]
 
 #set card starting positions
 def reset():
-    #centre
-    canvas.create_image(centre_x+(0*x_stack_shift), centre_y, image=(card_back))
-    canvas.create_image(centre_x+(1*x_stack_shift), centre_y, image=(card_back))
-    canvas.create_image(centre_x+(2*x_stack_shift), centre_y, image=(card_back))
-    canvas.create_image(centre_x+(3*x_stack_shift), centre_y, image=(card_back))
-    #one
-    canvas.create_image(one_x+(0*x_stack_shift), one_y, image=(card_back))
-    canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(card_back))
-    canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(card_back))
-    canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(card_back))
-    #two
-    canvas.create_image(two_x+(0*x_stack_shift), two_y, image=(card_back))
-    canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(card_back))
-    canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(card_back))
-    canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(card_back))
-    #three
-    canvas.create_image(three_x+(0*x_stack_shift), three_y, image=(card_back))
-    canvas.create_image(three_x+(1*x_stack_shift), three_y, image=(card_back))
-    canvas.create_image(three_x+(2*x_stack_shift), three_y, image=(card_back))
-    canvas.create_image(three_x+(3*x_stack_shift), three_y, image=(card_back))
-    #four
-    canvas.create_image(four_x+(0*x_stack_shift), four_y, image=(card_back))
-    canvas.create_image(four_x+(1*x_stack_shift), four_y, image=(card_back))
-    canvas.create_image(four_x+(2*x_stack_shift), four_y, image=(card_back))
-    canvas.create_image(four_x+(3*x_stack_shift), four_y, image=(card_back))
-    #five
-    canvas.create_image(five_x+(0*x_stack_shift), five_y, image=(card_back))
-    canvas.create_image(five_x+(1*x_stack_shift), five_y, image=(card_back))
-    canvas.create_image(five_x+(2*x_stack_shift), five_y, image=(card_back))
-    canvas.create_image(five_x+(3*x_stack_shift), five_y, image=(card_back))
-    #six
-    canvas.create_image(six_x+(0*x_stack_shift), six_y, image=(card_back))
-    canvas.create_image(six_x+(1*x_stack_shift), six_y, image=(card_back))
-    canvas.create_image(six_x+(2*x_stack_shift), six_y, image=(card_back))
-    canvas.create_image(six_x+(3*x_stack_shift), six_y, image=(card_back))
-    #seven
-    canvas.create_image(seven_x+(0*x_stack_shift), seven_y, image=(card_back))
-    canvas.create_image(seven_x+(1*x_stack_shift), seven_y, image=(card_back))
-    canvas.create_image(seven_x+(2*x_stack_shift), seven_y, image=(card_back))
-    canvas.create_image(seven_x+(3*x_stack_shift), seven_y, image=(card_back))
-    #eight
-    canvas.create_image(eight_x+(0*x_stack_shift), eight_y, image=(card_back))
-    canvas.create_image(eight_x+(1*x_stack_shift), eight_y, image=(card_back))
-    canvas.create_image(eight_x+(2*x_stack_shift), eight_y, image=(card_back))
-    canvas.create_image(eight_x+(3*x_stack_shift), eight_y, image=(card_back))
-    #nine
-    canvas.create_image(nine_x+(0*x_stack_shift), nine_y, image=(card_back))
-    canvas.create_image(nine_x+(1*x_stack_shift), nine_y, image=(card_back))
-    canvas.create_image(nine_x+(2*x_stack_shift), nine_y, image=(card_back))
-    canvas.create_image(nine_x+(3*x_stack_shift), nine_y, image=(card_back))
-    #ten
-    canvas.create_image(ten_x+(0*x_stack_shift), ten_y, image=(card_back))
-    canvas.create_image(ten_x+(1*x_stack_shift), ten_y, image=(card_back))
-    canvas.create_image(ten_x+(2*x_stack_shift), ten_y, image=(card_back))
-    canvas.create_image(ten_x+(3*x_stack_shift), ten_y, image=(card_back))
-    #eleven
-    canvas.create_image(eleven_x+(0*x_stack_shift), eleven_y, image=(card_back))
-    canvas.create_image(eleven_x+(1*x_stack_shift), eleven_y, image=(card_back))
-    canvas.create_image(eleven_x+(2*x_stack_shift), eleven_y, image=(card_back))
-    canvas.create_image(eleven_x+(3*x_stack_shift), eleven_y, image=(card_back))
-    #twelve
-    canvas.create_image(twelve_x+(0*x_stack_shift), twelve_y, image=(card_back))
-    canvas.create_image(twelve_x+(1*x_stack_shift), twelve_y, image=(card_back))
-    canvas.create_image(twelve_x+(2*x_stack_shift), twelve_y, image=(card_back))
-    canvas.create_image(twelve_x+(3*x_stack_shift), twelve_y, image=(card_back))
+    for place in range(0,13):
+        for stack in range(0,4):
+            position_x="{0}_x".format(positions[place])
+            position_y="{0}_y".format(positions[place])
+            canvas.create_image(clock_coords[position_x]+(stack*x_stack_shift), clock_coords[position_y], image=(card_back))
 
 #define deck
-deck={ace_heart:1, two_heart:2, three_heart:3, four_heart:4, five_heart:5, six_heart:6, seven_heart:7, eight_heart:8, nine_heart:9, ten_heart:10, jack_heart:11, queen_heart:12, king_heart:13, ace_diamond:1, two_diamond:2, three_diamond:3, four_diamond:4, five_diamond:5, six_diamond:6, seven_diamond:7, eight_diamond:8, nine_diamond:9, ten_diamond:10, jack_diamond:11, queen_diamond:12, king_diamond:13, ace_club:1, two_club:2, three_club:3, four_club:4, five_club:5, six_club:6, seven_club:7, eight_club:8, nine_club:9, ten_club:10, jack_club:11, queen_club:12, king_club:13, ace_spade:1, two_spade:2, three_spade:3, four_spade:4, five_spade:5, six_spade:6, seven_spade:7, eight_spade:8, nine_spade:9, ten_spade:10, jack_spade:11, queen_spade:12, king_spade:13}
+deck={'ace_heart':0, 'two_heart':1, 'three_heart':2, 'four_heart':3, 'five_heart':4, 'six_heart':5, 'seven_heart':6, 'eight_heart':7, 'nine_heart':8, 'ten_heart':9, 'jack_heart':10, 'queen_heart':11, 'king_heart':12, 'ace_diamond':0, 'two_diamond':1, 'three_diamond':2, 'four_diamond':3, 'five_diamond':4, 'six_diamond':5, 'seven_diamond':6, 'eight_diamond':7, 'nine_diamond':8, 'ten_diamond':9, 'jack_diamond':10, 'queen_diamond':11, 'king_diamond':12, 'ace_club':0, 'two_club':1, 'three_club':2, 'four_club':3, 'five_club':4, 'six_club':5, 'seven_club':6, 'eight_club':7, 'nine_club':8, 'ten_club':9, 'jack_club':10, 'queen_club':11, 'king_club':12, 'ace_spade':0, 'two_spade':1, 'three_spade':2, 'four_spade':3, 'five_spade':4, 'six_spade':5, 'seven_spade':6, 'eight_spade':7, 'nine_spade':8, 'ten_spade':9, 'jack_spade':10, 'queen_spade':11, 'king_spade':12}
         
 #function to shuffle the deck
 def shuffle():
@@ -237,48 +70,34 @@ def start():
     jacks=[]
     queens=[]
     kings=[]
+    another_list=[aces,twos,threes,fours,fives,sixes,sevens,eights,nines,tens,jacks,queens,kings]
     test_deck=shuffle()
     for x in range(0,52):
         #tkint.after(1000)
+        #tkint.update()
         key_value=(test_deck[x])
-        if deck[key_value] == 1:
-            if len(aces) == 3:
-                aces.append(key_value)
-                canvas.create_image(one_x+(0*x_stack_shift), one_y, image=(aces[0]))
-                canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(aces[1]))
-                canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(aces[2]))
-                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[3]))
-            if len(aces) == 2:
-                aces.append(key_value)
-                canvas.create_image(one_x+(1*x_stack_shift), one_y, image=(aces[0]))
-                canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(aces[1]))
-                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[2]))
-            if len(aces) == 1:
-                aces.append(key_value)
-                canvas.create_image(one_x+(2*x_stack_shift), one_y, image=(aces[0]))
-                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[1]))
-            if len(aces) == 0:
-                aces.append(key_value)
-                canvas.create_image(one_x+(3*x_stack_shift), one_y, image=(aces[0]))
-        if deck[key_value] == 2:
-            if len(twos) == 3:
-                twos.append(key_value)
-                canvas.create_image(two_x+(0*x_stack_shift), two_y, image=(twos[0]))
-                canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(twos[1]))
-                canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(twos[2]))
-                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[3]))
-            if len(twos) == 2:
-                twos.append(key_value)
-                canvas.create_image(two_x+(1*x_stack_shift), two_y, image=(twos[0]))
-                canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(twos[1]))
-                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[2]))
-            if len(twos) == 1:
-                twos.append(key_value)
-                canvas.create_image(two_x+(2*x_stack_shift), two_y, image=(twos[0]))
-                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[1]))
-            if len(twos) == 0:
-                twos.append(key_value)
-                canvas.create_image(two_x+(3*x_stack_shift), two_y, image=(twos[0]))
+        for y in range(0,13):
+            if deck[key_value] == y:
+                x_value='{0}_x'.format(positions[y])
+                y_value='{0}_y'.format(positions[y])
+                if len(another_list[y]) == 3:
+                    another_list[y].append(key_value)
+                    canvas.create_image(clock_coords[x_value]+(0*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[0]]))
+                    canvas.create_image(clock_coords[x_value]+(1*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[1]]))
+                    canvas.create_image(clock_coords[x_value]+(2*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[2]]))
+                    canvas.create_image(clock_coords[x_value]+(3*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[3]]))
+                if len(another_list[y]) == 2:
+                    another_list[y].append(key_value)
+                    canvas.create_image(clock_coords[x_value]+(1*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[0]]))
+                    canvas.create_image(clock_coords[x_value]+(2*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[1]]))
+                    canvas.create_image(clock_coords[x_value]+(3*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[2]]))
+                if len(another_list[y]) == 1:
+                    another_list[y].append(key_value)
+                    canvas.create_image(clock_coords[x_value]+(2*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[0]]))
+                    canvas.create_image(clock_coords[x_value]+(3*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[1]]))
+                if len(another_list[y]) == 0:
+                    another_list[y].append(key_value)
+                    canvas.create_image(clock_coords[x_value]+(3*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[0]]))
                 
 reset()
 
