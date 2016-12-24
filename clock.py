@@ -7,7 +7,7 @@ from time import sleep
 tkint = tk.Tk()
     
 canvas = tk.Canvas(tkint, width=800, height=800, bg='#32a245')
-canvas.pack()    
+canvas.pack()
 
 #Image import and card dimensions
 card_images = Image.open("classic-playing-cards.jpg")
@@ -35,12 +35,33 @@ clock_coords={'one_x': 534, 'one_y': 99, 'two_x': 628, 'two_y': 249, 'three_x': 
 
 positions=["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","centre"]
 
+#lose_index=0
+
+def loser(lose_index):
+    if lose_index==1:
+        loser_text=canvas.create_text(400, 500, text='You Lose',font=('Times', 30),tags='lose')
+        tkint.update()
+    if lose_index==0:
+        canvas.delete('lose')
+        tkint.update()
+        
+def winner(win_index):
+    if win_index==1:
+        loser_text=canvas.create_text(400, 500, text='You Win',font=('Times', 30),tags='win')
+        tkint.update()
+    if win_index==0:
+        canvas.delete('win')
+        tkint.update()
+
 #set card starting positions
 def reset():
+    loser(0)
+    winner(0)
     for place in range(0,13):
         for stack in range(0,4):
             position_x="{0}_x".format(positions[place])
             position_y="{0}_y".format(positions[place])
+            #canvas.delete(loser)
             canvas.create_image(clock_coords[position_x]+(stack*x_stack_shift), clock_coords[position_y], image=(card_back))
 
 #define deck
@@ -73,9 +94,10 @@ def start():
     another_list=[aces,twos,threes,fours,fives,sixes,sevens,eights,nines,tens,jacks,queens,kings]
     test_deck=shuffle()
     for x in range(0,52):
-        #tkint.after(1000)
-        #tkint.update()
         key_value=(test_deck[x])
+        if len(kings) == 4:
+            loser(1)
+            break
         for y in range(0,13):
             if deck[key_value] == y:
                 x_value='{0}_x'.format(positions[y])
@@ -98,6 +120,11 @@ def start():
                 if len(another_list[y]) == 0:
                     another_list[y].append(key_value)
                     canvas.create_image(clock_coords[x_value]+(3*x_stack_shift), clock_coords[y_value], image=(card_coords[(another_list[y])[0]]))
+        tkint.update()
+        sleep(0.2)
+        if x == 51:
+            winner(1)
+            break
                 
 reset()
 
