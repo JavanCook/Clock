@@ -37,26 +37,25 @@ positions=["one","two","three","four","five","six","seven","eight","nine","ten",
 
 #lose_index=0
 
-def loser(lose_index):
+def win_lose(lose_index):
     if lose_index==1:
+        loser_box=canvas.create_rectangle(315, 475, 485, 525, fill='white', tags='lose_rectangle')
         loser_text=canvas.create_text(400, 500, text='You Lose',font=('Times', 30),tags='lose')
         tkint.update()
     if lose_index==0:
         canvas.delete('lose')
-        tkint.update()
-        
-def winner(win_index):
-    if win_index==1:
-        loser_text=canvas.create_text(400, 500, text='You Win',font=('Times', 30),tags='win')
-        tkint.update()
-    if win_index==0:
+        canvas.delete('lose_rectangle')
         canvas.delete('win')
+        canvas.delete('win_rectangle')
+        tkint.update()
+    if lose_index==2:
+        winner_box=canvas.create_rectangle(315, 475, 485, 525, fill='white', tags='win_rectangle')
+        loser_text=canvas.create_text(400, 500, text='You Win',font=('Times', 30),tags='win')
         tkint.update()
 
 #set card starting positions
 def reset():
-    loser(0)
-    winner(0)
+    win_lose(0)
     for place in range(0,13):
         for stack in range(0,4):
             position_x="{0}_x".format(positions[place])
@@ -96,7 +95,7 @@ def start():
     for x in range(0,52):
         key_value=(test_deck[x])
         if len(kings) == 4:
-            loser(1)
+            win_lose(1)
             break
         for y in range(0,13):
             if deck[key_value] == y:
@@ -123,13 +122,11 @@ def start():
         tkint.update()
         sleep(0.2)
         if x == 51:
-            winner(1)
+            win_lose(2)
             break
                 
 reset()
 
-reset_btn = tk.Button(tkint, text="Reset", command=reset)
-reset_btn.pack()
 start_btn = tk.Button(tkint, text="Start", command=start)
 start_btn.pack()
 
